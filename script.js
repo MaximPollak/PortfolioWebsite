@@ -1,8 +1,10 @@
-// ---------- config ----------
+// --------------------
+// basic config
+// --------------------
 const GITHUB_USER = "MaximPollak";
 const EMAIL = "maxim.pollak2016@gmail.com";
 
-// Featured projects shown in the slider (curated + local screenshots in /assets)
+// projects I want to show (screenshots are local in /assets)
 const FEATURED = [
   {
     repo: "ClashOfTitans",
@@ -20,23 +22,25 @@ const FEATURED = [
     source: "github",
   },
   {
-    title: "IT Forum",
+    title: "IT Insiders",
     description:
-      "Web-based forum application developed as my Matura project. Includes user authentication, role-based access, and full CRUD functionality.",
-    tech: ["PHP", "MySQL", "HTML", "CSS"],
-    year: "2024",
+      "Matura project — web application (IT forum). Built user accounts, admin/moderation features, and full CRUD using PHP + MySQL.",
+    tech: ["PHP", "MySQL", "HTML", "CSS", "JavaScript"],
+    year: "2023",
     image: "assets/Screenshot_MaturaProject.jpeg",
     source: "matura",
   },
 ];
 
-// ---------- typing roles ----------
+// --------------------
+// typing effect for roles
+// --------------------
 const roles = ["Software Developer (Full-stack)", "Data Analyst"];
 
 const typingEl = document.getElementById("typingRole");
 const a11yEl = document.getElementById("typingA11y");
 
-// typing settings
+// typing speed settings
 const TYPE_SPEED = 55;
 const ERASE_SPEED = 35;
 const HOLD_TIME = 1100;
@@ -68,7 +72,7 @@ async function eraseText(text) {
 async function startTypingLoop() {
   if (!typingEl) return;
 
-  // reduced motion: no typing animation, just rotate calmly
+  // if user prefers reduced motion, don't animate typing
   if (prefersReducedMotion()) {
     let i = 0;
     typingEl.textContent = roles[i];
@@ -96,7 +100,9 @@ async function startTypingLoop() {
 
 startTypingLoop();
 
-// ---------- navbar mobile ----------
+// --------------------
+// mobile navbar
+// --------------------
 const menuBtn = document.getElementById("menuBtn");
 const nav = document.getElementById("nav");
 
@@ -106,6 +112,7 @@ if (menuBtn && nav) {
     menuBtn.setAttribute("aria-expanded", String(open));
   });
 
+  // close menu after clicking a link (mobile)
   nav.querySelectorAll("a").forEach((a) => {
     a.addEventListener("click", () => {
       nav.classList.remove("open");
@@ -113,6 +120,7 @@ if (menuBtn && nav) {
     });
   });
 
+  // close menu if user clicks outside
   document.addEventListener("click", (e) => {
     const inside = nav.contains(e.target) || menuBtn.contains(e.target);
     if (!inside) {
@@ -122,14 +130,19 @@ if (menuBtn && nav) {
   });
 }
 
-// ---------- year ----------
+// --------------------
+// footer year
+// --------------------
 const yearEl = document.getElementById("year");
 if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-// ---------- copy email ----------
+// --------------------
+// copy email button
+// --------------------
 const copyEmailBtn = document.getElementById("copyEmailBtn");
 const toast = document.getElementById("toast");
 
+// small toast message
 function showToast(msg) {
   if (!toast) return;
   toast.textContent = msg;
@@ -148,10 +161,10 @@ if (copyEmailBtn) {
   });
 }
 
-// ---------- GitHub projects ----------
+// --------------------
+// project slider
+// --------------------
 const projectTrack = document.getElementById("projectTrack");
-const ghNote = document.getElementById("ghNote");
-
 const prevBtn = document.getElementById("prevBtn");
 const nextBtn = document.getElementById("nextBtn");
 
@@ -163,8 +176,9 @@ function fmtDate(iso) {
   return d.toLocaleDateString(undefined, { year: "numeric", month: "short" });
 }
 
+// build one project card (GitHub repo or my local matura project)
 function createSlide(item) {
-  // ----- Matura / non-GitHub project -----
+  // non-GitHub project (Matura)
   if (item.source === "matura") {
     const el = document.createElement("div");
     el.className = "slide";
@@ -183,7 +197,7 @@ function createSlide(item) {
           <p class="project-desc">${item.description}</p>
 
           <div class="project-meta">
-            ${item.tech.map(t => `<span class="badge-pill">${t}</span>`).join("")}
+            ${item.tech.map((t) => `<span class="badge-pill">${t}</span>`).join("")}
             <span class="badge-pill">Matura Project</span>
           </div>
         </div>
@@ -192,7 +206,7 @@ function createSlide(item) {
     return el;
   }
 
-  // ----- GitHub project -----
+  // GitHub project
   const repo = item.repo;
   const year = new Date(repo.pushed_at).getFullYear();
   const homepage = (repo.homepage || "").trim();
@@ -236,12 +250,14 @@ function createSlide(item) {
   return el;
 }
 
+// update slider position
 function updateCarousel() {
   if (!projectTrack) return;
   const x = -slideIndex * 100;
   projectTrack.style.transform = `translateX(${x}%)`;
 }
 
+// keep the slider looping
 function clampIndex(i) {
   if (slidesCount === 0) return 0;
   if (i < 0) return slidesCount - 1;
@@ -249,6 +265,7 @@ function clampIndex(i) {
   return i;
 }
 
+// slider arrows
 if (prevBtn) {
   prevBtn.addEventListener("click", () => {
     slideIndex = clampIndex(slideIndex - 1);
@@ -262,7 +279,7 @@ if (nextBtn) {
   });
 }
 
-// keyboard support
+// keyboard controls (left/right)
 document.addEventListener("keydown", (e) => {
   if (!slidesCount) return;
   if (e.key === "ArrowLeft") {
@@ -275,6 +292,7 @@ document.addEventListener("keydown", (e) => {
   }
 });
 
+// load GitHub repos and match them with my FEATURED list
 async function loadGithubRepos() {
   try {
     const url = `https://api.github.com/users/${GITHUB_USER}/repos?per_page=100&sort=pushed`;
@@ -289,13 +307,13 @@ async function loadGithubRepos() {
     const featured = [];
 
     FEATURED.forEach((item) => {
-      // ---- non-GitHub project (Matura) ----
+      // Matura project (local)
       if (item.source === "matura") {
         featured.push(item);
         return;
       }
 
-      // ---- GitHub project ----
+      // GitHub project
       const repo = clean.find((r) => r.name === item.repo);
       if (repo) {
         featured.push({ ...item, repo });
@@ -304,24 +322,15 @@ async function loadGithubRepos() {
 
     if (projectTrack) {
       projectTrack.innerHTML = "";
-      featured.forEach((item) => {
-        projectTrack.appendChild(createSlide(item));
-      });
+      featured.forEach((item) => projectTrack.appendChild(createSlide(item)));
       slidesCount = featured.length;
       slideIndex = 0;
       updateCarousel();
     }
-
-    if (ghNote) {
-      ghNote.textContent = `Loaded from GitHub: github.com/${GITHUB_USER}`;
-    }
   } catch (err) {
     console.error(err);
-    if (ghNote) {
-      ghNote.textContent =
-        "Couldn't load GitHub repos right now (API limit or connection issue).";
-    }
   }
 }
 
+// start loading projects
 loadGithubRepos();
