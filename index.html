@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Maxim Pollák | Portfolio</title>
+    <meta name="description" content="Portfolio of Maxim Pollák — software development, full-stack, and data-focused projects." />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  </head>
+
+  <body>
+    <header class="topbar">
+      <div class="wrap topbar-inner">
+        <a class="brand" href="#home" aria-label="Go to top">
+          <span class="brand-mark">&lt;MP /&gt;</span>
+        </a>
+
+        <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+
+        <nav class="nav" id="nav">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#experience">Experience</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section class="hero" id="home">
+        <div class="wrap hero-inner">
+          <div class="hero-center">
+            <div class="avatar-ring">
+              <!-- Put your photo in /assets/profile.jpg -->
+              <img class="avatar" src="assets/userpic.jpg" alt="Portrait photo of Maxim Pollák" />
+            </div>
+
+            <div class="hello-pill">Hey there, I'm</div>
+
+            <h1 class="hero-name">
+              Maxim <span class="grad">Pollák</span>
+            </h1>
+
+            <div class="hero-role" aria-label="Role">
+                <span class="code">&lt;</span>
+                <span class="typing" id="typingRole"></span>
+                <span class="code">/&gt;</span>
+                <span class="sr-only" id="typingA11y"></span>
+            </div>
+
+
+            <p class="hero-sub">
+              Computing student focused on web development, software engineering, and data visualization.
+              Building digital experiences that are clean, secure, and practical.
+            </p>
+
+            <div class="hero-actions">
+              <a class="icon-btn" href="https://github.com/MaximPollak" target="_blank" rel="noreferrer" aria-label="GitHub">
+                <!-- GitHub icon -->
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M12 .5C5.73.5.75 5.64.75 12c0 5.1 3.29 9.43 7.86 10.96.58.11.79-.25.79-.56v-2.07c-3.2.71-3.87-1.58-3.87-1.58-.52-1.36-1.27-1.72-1.27-1.72-1.04-.73.08-.72.08-.72 1.15.08 1.76 1.2 1.76 1.2 1.02 1.78 2.68 1.27 3.33.97.1-.76.4-1.27.73-1.57-2.55-.3-5.23-1.3-5.23-5.8 0-1.28.45-2.33 1.2-3.15-.12-.3-.52-1.51.12-3.14 0 0 .98-.32 3.2 1.2a10.9 10.9 0 0 1 2.91-.4c.99 0 2 .14 2.91.4 2.22-1.52 3.2-1.2 3.2-1.2.64 1.63.24 2.84.12 3.14.75.82 1.2 1.87 1.2 3.15 0 4.51-2.69 5.5-5.25 5.79.41.36.78 1.09.78 2.2v3.26c0 .31.21.67.8.56A11.3 11.3 0 0 0 23.25 12C23.25 5.64 18.27.5 12 .5z"
+                  />
+                </svg>
+              </a>
+
+              <a class="icon-btn" href="https://www.linkedin.com/in/maxim-pollák-424449328/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+                <!-- LinkedIn icon -->
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.05-1.86-3.05-1.86 0-2.14 1.45-2.14 2.95v5.67H9.33V9h3.42v1.56h.05c.48-.9 1.66-1.86 3.42-1.86 3.65 0 4.32 2.4 4.32 5.51v6.24zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.55V9h3.57v11.45z"
+                  />
+                </svg>
+              </a>
+
+              <a class="cta" href="#contact">
+                <span class="cta-ic" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M2 6.5A2.5 2.5 0 0 1 4.5 4h15A2.5 2.5 0 0 1 22 6.5v11A2.5 2.5 0 0 1 19.5 20h-15A2.5 2.5 0 0 1 2 17.5v-11Zm2.2-.7 7.2 5.3c.4.3 1 .3 1.4 0l7.2-5.3c-.2-.5-.7-.8-1.3-.8h-15c-.6 0-1.1.3-1.3.8Zm15.6 2.2-6.2 4.6a3 3 0 0 1-3.6 0L3.8 8v9.5c0 .4.3.7.7.7h15c.4 0 .7-.3.7-.7V8Z"/>
+                  </svg>
+                </span>
+                Get in touch
+              </a>
+            </div>
+
+            <a class="down" href="#projects" aria-label="Scroll to projects">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 16.5 5.5 10l1.4-1.4L12 13.7l5.1-5.1L18.5 10 12 16.5z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section class="section" id="about">
+        <div class="wrap">
+          <div class="section-head">
+            <div class="sec-no">01.</div>
+            <h2>About</h2>
+          </div>
+
+          <div class="glass">
+            <p class="muted">
+                I’m a Creative Computing student focused on software development and data-oriented projects.
+                I build full-stack applications with an emphasis on clean structure, usability, and practical use.
+            </p>
+            <p class="muted">
+              I'm currently looking for new opportunities (internship / junior / part-time) alongside my studies.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SKILLS -->
+      <section class="section" id="skills">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="sec-no">02.</div>
+      <h2>Skills</h2>
+    </div>
+
+    <div class="grid">
+      <div class="glass">
+        <div class="glass-title">Frontend</div>
+        <div class="chips">
+          <span class="chip">HTML</span>
+          <span class="chip">CSS</span>
+          <span class="chip">JavaScript</span>
+          <span class="chip">React</span>
+        </div>
+      </div>
+
+      <div class="glass">
+        <div class="glass-title">Backend</div>
+        <div class="chips">
+          <span class="chip">Node.js</span>
+          <span class="chip">Express</span>
+          <span class="chip">REST APIs</span>
+          <span class="chip">JWT</span>
+          <span class="chip">PHP</span>
+        </div>
+      </div>
+
+      <div class="glass">
+        <div class="glass-title">Databases</div>
+        <div class="chips">
+          <span class="chip">MySQL</span>
+          <span class="chip">MongoDB</span>
+          <span class="chip">SQLite</span>
+        </div>
+      </div>
+
+      <div class="glass">
+        <div class="glass-title">Data</div>
+        <div class="chips">
+          <span class="chip">Python</span>
+          <span class="chip">R</span>
+          <span class="chip">Tableau</span>
+          <span class="chip">Data Visualization</span>
+        </div>
+      </div>
+
+      <div class="glass">
+        <div class="glass-title">Tools</div>
+        <div class="chips">
+          <span class="chip">Git</span>
+          <span class="chip">GitHub</span>
+          <span class="chip">GitLab</span>
+          <span class="chip">Postman</span>
+          <span class="chip">Swagger / OpenAPI</span>
+          <span class="chip">Chrome DevTools</span>
+        </div>
+      </div>
+
+      <div class="glass">
+        <div class="glass-title">Other</div>
+        <div class="chips">
+          <span class="chip">Kotlin</span>
+          <span class="chip">C#</span>
+          <span class="chip">C++ (Arduino)</span>
+          <span class="chip">Three.js</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+      <!-- PROJECTS (AUTO FROM GITHUB) -->
+      <section class="section" id="projects">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="sec-no">03.</div>
+      <h2>Featured Projects</h2>
+    </div>
+
+    <div class="carousel">
+      <button class="car-btn" id="prevBtn" aria-label="Previous project">‹</button>
+
+      <div class="car-viewport">
+        <div class="car-track" id="projectTrack">
+          <!-- JS injects slides here -->
+        </div>
+      </div>
+
+      <button class="car-btn" id="nextBtn" aria-label="Next project">›</button>
+    </div>
+
+    <div class="tiny muted" id="ghNote"></div>
+  </div>
+</section>
+
+
+      <!-- EXPERIENCE -->
+      <section class="section" id="experience">
+        <div class="wrap">
+          <div class="section-head">
+            <div class="sec-no">04.</div>
+            <h2>Experience & Education</h2>
+          </div>
+
+          <div class="timeline">
+            <div class="t-line"></div>
+
+            <div class="t-item">
+              <div class="t-dot"></div>
+              <div class="glass t-card">
+                <div class="badge">EDUCATION</div>
+                <h3>University of Applied Sciences St. Pölten</h3>
+                <p class="muted">BSc in Engineering — Creative Computing</p>
+                <div class="meta-row muted">
+                  <span>St. Pölten, Austria</span>
+                  <span>•</span>
+                  <span>Sep 2024 — Present</span>
+                </div>
+                <ul class="bullets">
+                    <li>Focused on Software development, Mobile development, UI/UX Design and User Research</li>
+                    <li>Elective module: Data Visualization</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="t-item">
+              <div class="t-dot green"></div>
+              <div class="glass t-card">
+                <div class="badge green">WORK</div>
+                <h3>Software Developer</h3>
+                <p class="muted">Erasmus+ Project — Europe Youth Center</p>
+                <div class="meta-row muted">
+                  <span>Vienna, Austria</span>
+                  <span>•</span>
+                  <span>Apr 2023 — May 2023</span>
+                </div>
+                <ul class="bullets">
+                  <li>Participated in a 4-week project focused on creative technology and teamwork</li>
+                  <li>Contributed to a 3D environment in JS/Three.js to visualize and purchase furniture</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="t-item">
+              <div class="t-dot"></div>
+              <div class="glass t-card">
+                <div class="badge">EDUCATION</div>
+                <h3>SOŠ Information Technologies Ostrovského 1</h3>
+                <p class="muted">Programming Digital Technologies</p>
+                <div class="meta-row muted">
+                  <span>Košice, Slovakia</span>
+                  <span>•</span>
+                  <span>Sep 2020 — Jun 2024</span>
+                </div>
+                <ul class="bullets">
+                  <li>Graduated with Matura</li>
+                  <li>Focused on Programming Web Applications, Databases and UX/UI Design</li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section class="section" id="contact">
+        <div class="wrap">
+          <div class="center-head">
+            <h2>Get in Touch</h2>
+            <div class="underline"></div>
+            <p class="muted">
+              I'm currently looking for new opportunities. Whether you have a question or just want to say hi,
+              feel free to reach out!
+            </p>
+          </div>
+
+          <div class="contact-grid">
+            <a class="glass contact-card" href="https://www.linkedin.com/in/maxim-pollák-424449328/" target="_blank" rel="noreferrer">
+              <div class="contact-ic">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.05-1.86-3.05-1.86 0-2.14 1.45-2.14 2.95v5.67H9.33V9h3.42v1.56h.05c.48-.9 1.66-1.86 3.42-1.86 3.65 0 4.32 2.4 4.32 5.51v6.24zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.55V9h3.57v11.45z"/>
+                </svg>
+              </div>
+              <div class="contact-title">LinkedIn</div>
+              <div class="muted tiny">Let's connect</div>
+            </a>
+
+            <a class="glass contact-card" href="https://github.com/MaximPollak" target="_blank" rel="noreferrer">
+              <div class="contact-ic">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 .5C5.73.5.75 5.64.75 12c0 5.1 3.29 9.43 7.86 10.96.58.11.79-.25.79-.56v-2.07c-3.2.71-3.87-1.58-3.87-1.58-.52-1.36-1.27-1.72-1.27-1.72-1.04-.73.08-.72.08-.72 1.15.08 1.76 1.2 1.76 1.2 1.02 1.78 2.68 1.27 3.33.97.1-.76.4-1.27.73-1.57-2.55-.3-5.23-1.3-5.23-5.8 0-1.28.45-2.33 1.2-3.15-.12-.3-.52-1.51.12-3.14 0 0 .98-.32 3.2 1.2a10.9 10.9 0 0 1 2.91-.4c.99 0 2 .14 2.91.4 2.22-1.52 3.2-1.2 3.2-1.2.64 1.63.24 2.84.12 3.14.75.82 1.2 1.87 1.2 3.15 0 4.51-2.69 5.5-5.25 5.79.41.36.78 1.09.78 2.2v3.26c0 .31.21.67.8.56A11.3 11.3 0 0 0 23.25 12C23.25 5.64 18.27.5 12 .5z"/>
+                </svg>
+              </div>
+              <div class="contact-title">GitHub</div>
+              <div class="muted tiny">Code & projects</div>
+            </a>
+
+            <button class="glass contact-card" id="copyEmailBtn" type="button">
+              <div class="contact-ic">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M2 6.5A2.5 2.5 0 0 1 4.5 4h15A2.5 2.5 0 0 1 22 6.5v11A2.5 2.5 0 0 1 19.5 20h-15A2.5 2.5 0 0 1 2 17.5v-11Zm2.2-.7 7.2 5.3c.4.3 1 .3 1.4 0l7.2-5.3c-.2-.5-.7-.8-1.3-.8h-15c-.6 0-1.1.3-1.3.8Zm15.6 2.2-6.2 4.6a3 3 0 0 1-3.6 0L3.8 8v9.5c0 .4.3.7.7.7h15c.4 0 .7-.3.7-.7V8Z"/>
+                </svg>
+              </div>
+              <div class="contact-title">Email</div>
+              <div class="muted tiny" id="emailText">maxim.pollak2016@gmail.com</div>
+            </button>
+          </div>
+
+          <div class="toast" id="toast" aria-live="polite"></div>
+
+          <footer class="footer">
+            <div class="muted tiny">© <span id="year"></span> Maxim Pollák — All rights reserved</div>
+          </footer>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
